@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "713630700480",
+    "project_id": "teampeanut",
+    "storage_bucket": "teampeanut.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713630700480:android:dcb97c3e5c179c90ca6e25",
+        "android_client_info": {
+          "package_name": "com.example.teampeanut_harvesttiming_2023"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713630700480-jr9ci1jn150vk5epgctmdv84qp5okji6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUWxxW2i6dNQrMrBziSlMrlcuVzRnhxeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713630700480-jr9ci1jn150vk5epgctmdv84qp5okji6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

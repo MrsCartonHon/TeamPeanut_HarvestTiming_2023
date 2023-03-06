@@ -24,5 +24,13 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_JDSignIn"
+            app:destination="@id/JDSignIn" />
     </fragment>
+    <activity
+        android:id="@+id/JDSignIn"
+        android:name="com.example.teampeanut_harvesttiming_2023.ui.login.JDSignIn"
+        android:label="activity_jdsign_in"
+        tools:layout="@layout/activity_jdsign_in" />
 </navigation>
