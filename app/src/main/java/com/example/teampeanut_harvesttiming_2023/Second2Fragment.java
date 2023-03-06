@@ -4,28 +4,25 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.teampeanut_harvesttiming_2023.databinding.FragmentSecondBinding;
+import com.example.teampeanut_harvesttiming_2023.databinding.FragmentSecond2Binding;
 
-public class SecondFragment extends Fragment {
+public class Second2Fragment extends Fragment {
 
-    private FragmentSecondBinding binding;
-    private Button button;
+    private FragmentSecond2Binding binding;
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentSecondBinding.inflate(inflater, container, false);
+        binding = FragmentSecond2Binding.inflate(inflater, container, false);
         return binding.getRoot();
-
-
 
     }
 
@@ -35,16 +32,8 @@ public class SecondFragment extends Fragment {
         binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
-            }
-        })
-        ;
-        binding.tosignin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_JDSignIn);
+                NavHostFragment.findNavController(Second2Fragment.this)
+                        .navigate(R.id.action_Second2Fragment_to_First2Fragment);
             }
         });
     }
