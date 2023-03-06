@@ -10,6 +10,7 @@ import com.example.teampeanut_harvesttiming_2023.data.LoginRepository;
 import com.example.teampeanut_harvesttiming_2023.data.Result;
 import com.example.teampeanut_harvesttiming_2023.data.model.LoggedInUser;
 import com.example.teampeanut_harvesttiming_2023.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginViewModel extends ViewModel {
 
@@ -32,13 +33,8 @@ public class LoginViewModel extends ViewModel {
     public void login(String username, String password) {
         // can be launched in a separate asynchronous job
         Result<LoggedInUser> result = loginRepository.login(username, password);
-
-        if (result instanceof Result.Success) {
-            LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
-            loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
-        } else {
-            loginResult.setValue(new LoginResult(R.string.login_failed));
-        }
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(task->{});
     }
 
     public void loginDataChanged(String username, String password) {

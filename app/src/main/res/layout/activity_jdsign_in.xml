@@ -18,7 +18,7 @@
         android:layout_marginTop="50dp"
         android:autofillHints="@string/prompt_email"
         android:hint="@string/email_phone_number_prompt"
-        android:inputType="textEmailAddress|phone"
+        android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"

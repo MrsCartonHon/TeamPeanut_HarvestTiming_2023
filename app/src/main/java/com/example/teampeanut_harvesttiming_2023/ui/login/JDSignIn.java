@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 
 import com.example.teampeanut_harvesttiming_2023.R;
 import com.example.teampeanut_harvesttiming_2023.databinding.ActivityJdsignInBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class JDSignIn extends AppCompatActivity {
 
@@ -115,12 +117,25 @@ public class JDSignIn extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String username = usernameEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
                 loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
+                FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                firebaseAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(task->{
+                    if(task.isSuccessful())
+                    {
+                        Log.i("firebase auth", "logged in");
+                    }
+                    else
+                    {
+                        Log.e("firebase auth", task.getException().toString());
+                    }
+                });
             }
         });
     }
+
+
 
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
