@@ -33,4 +33,9 @@
         android:name="com.example.teampeanut_harvesttiming_2023.ui.login.JDSignIn"
         android:label="activity_jdsign_in"
         tools:layout="@layout/activity_jdsign_in" />
+    <activity
+        android:id="@+id/inputdatastart"
+        android:name="com.example.teampeanut_harvesttiming_2023.inputdatastart"
+        android:label="activity_inputdatastart"
+        tools:layout="@layout/activity_inputdatastart" />
 </navigation>

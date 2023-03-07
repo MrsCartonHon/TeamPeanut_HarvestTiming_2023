@@ -21,4 +21,10 @@
     <string name="email_phone_number_prompt">Email</string>
     <string name="signinTExt">Sign In</string>
     <string name="title_activity_inputdatastart">inputdatastart</string>
+    <string name="crop_placeholder">Crop</string>
+
+    <string-array name="crops">
+        <item>"Corn"</item>
+        <item>"Soybean"</item>
+    </string-array>
 </resources>
