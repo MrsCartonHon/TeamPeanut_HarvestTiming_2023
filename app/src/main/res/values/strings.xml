@@ -21,4 +21,9 @@
     <string name="email_phone_number_prompt">Email</string>
     <string name="signinTExt">Sign In</string>
     <string name="title_activity_inputdatastart">inputdatastart</string>
+
+    <string name="cropStateText">Current Crop State</string>
+    <string name="updateStateText">Update Crop Status</string>
+    <string name="weatherCheckText">Weather Check</string>
+    <string name="universalMenuButtonName">Menu</string>
 </resources>
