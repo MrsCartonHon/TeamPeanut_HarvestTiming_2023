@@ -23,8 +23,10 @@
     <string name="title_activity_inputdatastart">inputdatastart</string>
     <string name="crop_placeholder">Crop</string>
 
-    <string-array name="crops">
-        <item>"Corn"</item>
-        <item>"Soybean"</item>
-    </string-array>
+        <string name="crops">crop</string>
+        <string-array name="crops">
+            <item>Corn</item>
+            <item>Soybean</item>
+
+        </string-array>
 </resources>
