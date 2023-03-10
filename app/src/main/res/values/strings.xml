@@ -22,10 +22,28 @@
     <string name="signinTExt">Sign In</string>
     <string name="title_activity_inputdatastart">inputdatastart</string>
     <string name="crop_placeholder">Crop</string>
+    <string name="crop_select_ph">Select Crop</string>
+    <string name="variety_selection_ph">Variety Selection</string>
 
 
     <string-array name="crops_array">
         <item>Corn</item>
         <item>Soybean</item>
+    </string-array>
+    <string-array name="cVariety_array">
+        <item>corn variety 1</item>
+        <item>corn variety 2</item>
+    </string-array>
+    <string-array name="sbVariety_array">
+        <item>soybean variety 1</item>
+        <item>soybean variety 2</item>
+    </string-array>
+    <string-array name="soil_type_array">
+        <item>soil type 1</item>
+        <item>soil type 2</item>
+    </string-array>
+    <string-array name="fert_array">
+        <item>fertilizer 1</item>
+        <item>fertilizer 2</item>
     </string-array>
 </resources>
