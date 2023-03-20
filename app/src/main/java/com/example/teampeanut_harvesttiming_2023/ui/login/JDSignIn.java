@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.example.teampeanut_harvesttiming_2023.MainActivity;
 import com.example.teampeanut_harvesttiming_2023.R;
+import com.example.teampeanut_harvesttiming_2023.SignUpPage;
 import com.example.teampeanut_harvesttiming_2023.databinding.ActivityJdsignInBinding;
 import com.example.teampeanut_harvesttiming_2023.inputdatastart;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,10 +35,12 @@ public class JDSignIn extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
     private ActivityJdsignInBinding binding;
+    private Button toSignin;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_jdsign_in);
 
         binding = ActivityJdsignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -138,6 +141,13 @@ public class JDSignIn extends AppCompatActivity {
                     }
                 });
             }
+
+
+
+
+
+
+
         });
     }
 

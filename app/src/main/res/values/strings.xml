@@ -24,6 +24,8 @@
     <string name="crop_placeholder">Crop</string>
     <string name="crop_select_ph">Select Crop</string>
     <string name="variety_selection_ph">Variety Selection</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="create_an_account">Create an account</string>
 
 
     <string-array name="crops_array">
