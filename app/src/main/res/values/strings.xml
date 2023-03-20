@@ -26,4 +26,5 @@
     <string name="updateStateText">Update Crop Status</string>
     <string name="weatherCheckText">Weather Check</string>
     <string name="universalMenuButtonName">Menu</string>
+    <string name="Menu_Fragment_Label">Menu Fragment</string>
 </resources>
