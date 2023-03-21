@@ -27,4 +27,37 @@
     <string name="weatherCheckText">Weather Check</string>
     <string name="universalMenuButtonName">Menu</string>
     <string name="Menu_Fragment_Label">Menu Fragment</string>
+    <string name="crop_placeholder">Crop</string>
+    <string name="crop_select_ph">Select Crop</string>
+    <string name="variety_selection_ph">Variety Selection</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="fertilizer">Fertilizer</string>
+    <string name="farmaddy">Farm Address</string>
+    <string name="crop">Crop</string>
+    <string name="crop_nvariety">Crop\nVariety</string>
+    <string name="soil_ntype">Soil\nType</string>
+    <string name="addy">Address</string>
+
+
+    <string-array name="crops_array">
+        <item>Corn</item>
+        <item>Soybean</item>
+    </string-array>
+    <string-array name="cVariety_array">
+        <item>corn variety 1</item>
+        <item>corn variety 2</item>
+    </string-array>
+    <string-array name="sbVariety_array">
+        <item>soybean variety 1</item>
+        <item>soybean variety 2</item>
+    </string-array>
+    <string-array name="soil_type_array">
+        <item>soil type 1</item>
+        <item>soil type 2</item>
+    </string-array>
+    <string-array name="fert_array">
+        <item>fertilizer 1</item>
+        <item>fertilizer 2</item>
+    </string-array>
 </resources>
