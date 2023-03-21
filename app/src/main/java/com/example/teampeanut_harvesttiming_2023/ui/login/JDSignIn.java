@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -23,18 +24,23 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.teampeanut_harvesttiming_2023.MainActivity;
 import com.example.teampeanut_harvesttiming_2023.R;
+import com.example.teampeanut_harvesttiming_2023.SignUpPage;
 import com.example.teampeanut_harvesttiming_2023.databinding.ActivityJdsignInBinding;
+import com.example.teampeanut_harvesttiming_2023.inputdatastart;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class JDSignIn extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
     private ActivityJdsignInBinding binding;
+    private Button toSignin;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_jdsign_in);
 
         binding = ActivityJdsignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -47,6 +53,19 @@ public class JDSignIn extends AppCompatActivity {
         final Button loginButton = binding.login;
         final ProgressBar loadingProgressBar = binding.loading;
 
+        toSignin = (Button)findViewById(R.id.signinTOsignup);
+        toSignin.setOnClickListener(new View.OnClickListener()
+        {
+
+            @Override
+            public void onClick(View v) {
+
+                    startActivity(new Intent(getApplicationContext(),SignUpPage.class));
+           /* if you want to finish the first activity then just call
+            finish(); */
+
+        }
+        });
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {
@@ -117,6 +136,7 @@ public class JDSignIn extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent secondActivityIntent = new Intent(JDSignIn.this, inputdatastart.class);
                 String username = usernameEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
                 loadingProgressBar.setVisibility(View.VISIBLE);
@@ -125,13 +145,22 @@ public class JDSignIn extends AppCompatActivity {
                     if(task.isSuccessful())
                     {
                         Log.i("firebase auth", "logged in");
+                        startActivity(secondActivityIntent);
                     }
                     else
                     {
                         Log.e("firebase auth", task.getException().toString());
+                        Toast.makeText(getApplicationContext(), "Wrong E-mail or password, try again", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
+
+
+
+
+
+
+
         });
     }
 
