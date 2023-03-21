@@ -13,7 +13,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.example.teampeanut_harvesttiming_2023.databinding.FragmentSecondBinding;
 
 public class SecondFragment extends Fragment {
-
+//jason says hi
     private FragmentSecondBinding binding;
     private Button button;
     @Override
