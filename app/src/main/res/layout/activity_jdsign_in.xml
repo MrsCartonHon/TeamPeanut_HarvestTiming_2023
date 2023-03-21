@@ -121,7 +121,7 @@
     <Button
         android:id="@+id/signinTOsignup"
         android:layout_width="wrap_content"
-        android:layout_height="40sp"
+        android:layout_height="48dp"
         android:text="@string/create_an_account"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"

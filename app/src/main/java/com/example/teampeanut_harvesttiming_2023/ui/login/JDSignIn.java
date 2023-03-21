@@ -53,6 +53,19 @@ public class JDSignIn extends AppCompatActivity {
         final Button loginButton = binding.login;
         final ProgressBar loadingProgressBar = binding.loading;
 
+        toSignin = (Button)findViewById(R.id.signinTOsignup);
+        toSignin.setOnClickListener(new View.OnClickListener()
+        {
+
+            @Override
+            public void onClick(View v) {
+
+                    startActivity(new Intent(getApplicationContext(),SignUpPage.class));
+           /* if you want to finish the first activity then just call
+            finish(); */
+
+        }
+        });
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {
