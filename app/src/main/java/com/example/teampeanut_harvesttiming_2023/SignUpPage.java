@@ -75,6 +75,8 @@ public class SignUpPage extends AppCompatActivity {
                         if(task.isSuccessful())
                         {
                             Toast.makeText(SignUpPage.this,"You are successfully Registered", Toast.LENGTH_SHORT).show();
+                            Intent toLoadingIntent = new Intent(SignUpPage.this, StartSelect.class);
+                            startActivity(toLoadingIntent);
 
                         }
                         else

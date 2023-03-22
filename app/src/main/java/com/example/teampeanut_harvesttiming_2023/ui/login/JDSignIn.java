@@ -24,11 +24,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.teampeanut_harvesttiming_2023.MainActivity;
+import com.example.teampeanut_harvesttiming_2023.StartSelect;
 import com.example.teampeanut_harvesttiming_2023.R;
 import com.example.teampeanut_harvesttiming_2023.SignUpPage;
 import com.example.teampeanut_harvesttiming_2023.databinding.ActivityJdsignInBinding;
-import com.example.teampeanut_harvesttiming_2023.inputdatastart;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class JDSignIn extends AppCompatActivity {
@@ -136,7 +135,7 @@ public class JDSignIn extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent secondActivityIntent = new Intent(JDSignIn.this, inputdatastart.class);
+                Intent toLoadingIntent = new Intent(JDSignIn.this, StartSelect.class);
                 String username = usernameEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
                 loadingProgressBar.setVisibility(View.VISIBLE);
@@ -145,7 +144,7 @@ public class JDSignIn extends AppCompatActivity {
                     if(task.isSuccessful())
                     {
                         Log.i("firebase auth", "logged in");
-                        startActivity(secondActivityIntent);
+                        startActivity(toLoadingIntent);
                     }
                     else
                     {
