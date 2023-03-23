@@ -44,6 +44,8 @@
     <string name="soil_temp_label_text">Soil Temp</string>
     <string name="moisture_label_text">Moisture</string>
     <string name="crop_health_label_text">Crop Health</string>
+    <string name="crop_image_description">Displays the image of the crop.</string>
+    <string name="input_crop_button_text">Input</string>
 
 
     <string-array name="crops_array">
