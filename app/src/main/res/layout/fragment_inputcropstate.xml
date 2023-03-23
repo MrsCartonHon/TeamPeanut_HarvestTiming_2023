@@ -10,24 +10,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Input Health Here"
+        android:hint="@string/crop_health_hint"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/CropHealthLabel"
-        app:layout_constraintStart_toStartOf="@+id/MoistureText" />
+        app:layout_constraintStart_toStartOf="@+id/MoistureText"
+        tools:ignore="Autofill,TextContrastCheck" />
 
     <EditText
         android:id="@+id/MoistureText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Input Moisture Here"
+        android:hint="@string/moisture_hint"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/MoistureLabel"
-        app:layout_constraintStart_toStartOf="@+id/SoilTempText" />
+        app:layout_constraintStart_toStartOf="@+id/SoilTempText"
+        tools:ignore="Autofill,TextContrastCheck" />
 
     <Button
         android:id="@+id/BackButton"
@@ -43,12 +45,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:ems="10"
-        android:hint="Input Temp Here"
+        android:hint="@string/soil_temp_hint"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/SoilTempLabel"
-        app:layout_constraintStart_toEndOf="@+id/SoilTempLabel" />
+        app:layout_constraintStart_toEndOf="@+id/SoilTempLabel"
+        tools:ignore="Autofill,TextContrastCheck" />
 
     <TextView
         android:id="@+id/SoilTempLabel"
@@ -56,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="120dp"
-        android:text="Soil Temp"
+        android:text="@string/soil_temp_label_text"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
-        android:text="Moisture"
+        android:text="@string/moisture_label_text"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
-        android:text="Crop Health"
+        android:text="@string/crop_health_label_text"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"

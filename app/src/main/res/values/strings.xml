@@ -38,6 +38,12 @@
     <string name="crop_nvariety">Crop\nVariety</string>
     <string name="soil_ntype">Soil\nType</string>
     <string name="addy">Address</string>
+    <string name="crop_health_hint">Input Health Here</string>
+    <string name="moisture_hint">Input Moisture Here</string>
+    <string name="soil_temp_hint">Input Temp Here</string>
+    <string name="soil_temp_label_text">Soil Temp</string>
+    <string name="moisture_label_text">Moisture</string>
+    <string name="crop_health_label_text">Crop Health</string>
 
 
     <string-array name="crops_array">
