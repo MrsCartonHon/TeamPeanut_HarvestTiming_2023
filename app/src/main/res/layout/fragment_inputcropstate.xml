@@ -91,18 +91,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MoistureLabel" />
 
-    <ImageButton
-        android:id="@+id/CropImage"
-        android:layout_width="185dp"
-        android:layout_height="307dp"
-        android:layout_marginBottom="30dp"
-        android:contentDescription="@string/crop_image_description"
-        app:layout_constraintBottom_toTopOf="@+id/InputCropButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/common_full_open_on_phone"
-        tools:ignore="ImageContrastCheck" />
-
     <Button
         android:id="@+id/InputCropButton"
         android:layout_width="wrap_content"
@@ -112,5 +100,26 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/SelectImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Image"
+        app:layout_constraintBottom_toTopOf="@+id/CropImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/CropImage"
+        android:layout_width="185dp"
+        android:layout_height="307dp"
+        android:layout_marginBottom="8dp"
+        android:background="#D0D0D0"
+        android:contentDescription="@string/crop_image_description"
+        app:layout_constraintBottom_toTopOf="@+id/InputCropButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/common_full_open_on_phone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
