@@ -37,5 +37,5 @@
         android:id="@+id/inputdatastart"
         android:name="com.example.teampeanut_harvesttiming_2023.inputdatastart"
         android:label="activity_inputdatastart"
-        tools:layout="@layout/activity_inputdatastart" />
+        tools:layout="@layout/activity_inputdatastart"/>
 </navigation>
