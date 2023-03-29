@@ -28,26 +28,6 @@
             android:id="@+id/action_SecondFragment_to_JDSignIn"
             app:destination="@id/JDSignIn" />
     </fragment>
-    <fragment
-        android:id="@+id/MenuFragment"
-        android:name="com.example.teampeanut_harvesttiming_2023.FirstFragment"
-        android:label="@string/Menu_Fragment_Label"
-        tools:layout="@layout/fragment_menu">
-
-        <action
-            android:id="@+id/action_MenuFragment_to_InputCropStateFragment"
-            app:destination="@id/InputCropStateFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/InputCropStateFragment"
-        android:name="com.example.teampeanut_harvesttiming_2023.FirstFragment"
-        android:label="InputCropStateFragment"
-        tools:layout="@layout/fragment_inputcropstate">
-
-        <action
-            android:id="@+id/action_InputCropStateFragment_to_MenuFragment"
-            app:destination="@id/MenuFragment" />
-    </fragment>
     <activity
         android:id="@+id/JDSignIn"
         android:name="com.example.teampeanut_harvesttiming_2023.ui.login.JDSignIn"
