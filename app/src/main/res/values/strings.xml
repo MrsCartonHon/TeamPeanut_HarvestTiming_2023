@@ -21,6 +21,12 @@
     <string name="email_phone_number_prompt">Email</string>
     <string name="signinTExt">Sign In</string>
     <string name="title_activity_inputdatastart">inputdatastart</string>
+
+    <string name="cropStateText">Current Crop State</string>
+    <string name="updateStateText">Update Crop Status</string>
+    <string name="weatherCheckText">Weather Check</string>
+    <string name="universalMenuButtonName">Menu</string>
+    <string name="Menu_Fragment_Label">Menu Fragment</string>
     <string name="crop_placeholder">Crop</string>
     <string name="crop_select_ph">Select Crop</string>
     <string name="variety_selection_ph">Variety Selection</string>
@@ -32,6 +38,14 @@
     <string name="crop_nvariety">Crop\nVariety</string>
     <string name="soil_ntype">Soil\nType</string>
     <string name="addy">Address</string>
+    <string name="crop_health_hint">Input Health Here</string>
+    <string name="moisture_hint">Input Moisture Here</string>
+    <string name="soil_temp_hint">Input Temp Here</string>
+    <string name="soil_temp_label_text">Soil Temp</string>
+    <string name="moisture_label_text">Moisture</string>
+    <string name="crop_health_label_text">Crop Health</string>
+    <string name="crop_image_description">Displays the image of the crop.</string>
+    <string name="input_crop_button_text">Input</string>
 
 
     <string-array name="crops_array">
