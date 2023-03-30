@@ -251,11 +251,19 @@
 
     </string-array>
     <string-array name="soil_type_array">
-        <item>soil type 1</item>
-        <item>soil type 2</item>
+        <item>Alfisols</item>
+        <item>Mollisols</item>
+        <item>Entisols</item>
     </string-array>
     <string-array name="fert_array">
-        <item>fertilizer 1</item>
-        <item>fertilizer 2</item>
+        <item>DAP</item>
+        <item>MAP</item>
+        <item>Potash</item>
+        <item>Anhydrous</item>
+        <item>Ammonia</item>
+        <item>Ammonium Nitrate</item>
+        <item>Urea</item>
+        <item>UAN 32-0-0</item>
+        <item>UAN 28-0-0</item>
     </string-array>
 </resources>
