@@ -1,4 +1,5 @@
 package com.example.teampeanut_harvesttiming_2023;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,21 +8,38 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import androidx.navigation.ui.AppBarConfiguration;
+
+import android.widget.Button;
 import android.widget.Spinner;
 
 
 import com.example.teampeanut_harvesttiming_2023.databinding.ActivityInputdatastartBinding;
+import com.example.teampeanut_harvesttiming_2023.ui.login.JDSignIn;
 
 public class inputdatastart extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
-
+    Button toMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         com.example.teampeanut_harvesttiming_2023.databinding.ActivityInputdatastartBinding binding = ActivityInputdatastartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        toMap = (Button)findViewById(R.id.next_but);
+        toMap.setOnClickListener(new View.OnClickListener()
+        {
+
+
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(), MapSelection.class));
+           /* if you want to finish the first activity then just call
+            finish(); */
+
+            }
+        });
 //crop drop down
         setSupportActionBar(binding.toolbar);
 
