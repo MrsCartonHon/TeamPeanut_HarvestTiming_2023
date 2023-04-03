@@ -22,8 +22,10 @@ public class SecondFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
+
         binding = FragmentSecondBinding.inflate(inflater, container, false);
         return binding.getRoot();
+
 
 
 
