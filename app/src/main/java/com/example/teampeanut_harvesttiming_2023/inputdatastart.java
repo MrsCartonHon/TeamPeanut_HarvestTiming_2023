@@ -1,4 +1,5 @@
 package com.example.teampeanut_harvesttiming_2023;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,13 +9,16 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import androidx.navigation.ui.AppBarConfiguration;
 import android.widget.Spinner;
+import android.widget.Button;
 
 
 import com.example.teampeanut_harvesttiming_2023.databinding.ActivityInputdatastartBinding;
+import com.example.teampeanut_harvesttiming_2023.ui.login.JDSignIn;
 
 public class inputdatastart extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
+    Button next_but;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +69,20 @@ public class inputdatastart extends AppCompatActivity {
         ArrayAdapter<CharSequence> fertAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.fert_array, android.R.layout.simple_spinner_item);
         fertAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fertSpinner.setAdapter(fertAdapter);
+
+        next_but = (Button)findViewById(R.id.next_but);
+        next_but.setOnClickListener(new View.OnClickListener()
+        {
+
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(), InputCropStateActivity.class));
+           /* if you want to finish the first activity then just call
+            finish(); */
+
+            }
+        });
 
 
     }

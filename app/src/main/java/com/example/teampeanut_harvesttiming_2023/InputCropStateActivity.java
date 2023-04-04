@@ -1,6 +1,7 @@
 package com.example.teampeanut_harvesttiming_2023;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class InputCropStateActivity extends AppCompatActivity  {
+public class InputCropStateActivity extends AppCompatActivity {
     // One Button
     Button BSelectImage;
 
@@ -22,7 +23,7 @@ public class InputCropStateActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_input_crop_state);
 
         // register the UI widgets with their appropriate IDs
         BSelectImage = findViewById(R.id.SelectImageButton);
@@ -36,6 +37,7 @@ public class InputCropStateActivity extends AppCompatActivity  {
                 imageChooser();
             }
         });
+
     }
 
     // this function is triggered when

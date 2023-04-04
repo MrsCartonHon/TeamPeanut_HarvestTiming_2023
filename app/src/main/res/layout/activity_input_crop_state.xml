@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".InputCropStateActivity">
 
     <EditText
         android:id="@+id/CropHealthText"
@@ -95,7 +96,7 @@
         android:id="@+id/InputCropButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/input_crop_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,20 +107,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select Image"
-        app:layout_constraintBottom_toTopOf="@+id/CropImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CropHealthText" />
 
     <ImageView
         android:id="@+id/CropImage"
-        android:layout_width="185dp"
-        android:layout_height="307dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="200sp"
+        android:layout_height="300sp"
         android:background="#D0D0D0"
         android:contentDescription="@string/crop_image_description"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/InputCropButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SelectImageButton"
         app:srcCompat="@drawable/common_full_open_on_phone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
