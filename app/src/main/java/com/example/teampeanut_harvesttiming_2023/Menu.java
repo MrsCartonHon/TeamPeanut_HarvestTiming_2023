@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.teampeanut_harvesttiming_2023.model.MyWeather;
+
 public class Menu extends AppCompatActivity {
 
-        private Button toNewHarvest, openWeather, openMonitor, openUpdateCropState;
+        private Button toNewHarvest, buttonWeather, openMonitor, openUpdateCropState;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,17 +31,16 @@ public class Menu extends AppCompatActivity {
 
             }
         });
-        openWeather = (Button)findViewById(R.id.toWeather);
-        openWeather.setOnClickListener(new View.OnClickListener()
+        buttonWeather = (Button)findViewById(R.id.toWeather);
+        buttonWeather.setOnClickListener(new View.OnClickListener()
         {
-
-
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplicationContext(), WeatherActivity.class));
+                startActivity(new Intent(Menu.this, WeatherActivity.class));
            /* if you want to finish the first activity then just call
             finish(); */
+
 
             }
         });
