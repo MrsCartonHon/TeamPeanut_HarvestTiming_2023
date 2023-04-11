@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Menu">
+
+    <TextView
+        android:id="@+id/menuText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Menu"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/newHarvest"
+        android:layout_width="wrap_content"
+        android:layout_height="60sp"
+        android:layout_marginTop="94dp"
+        android:text="New Harvest"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuText" />
+
+    <Button
+        android:id="@+id/toMonitor"
+        android:layout_width="wrap_content"
+        android:layout_height="60sp"
+        android:layout_marginTop="32dp"
+        android:text="Check Crop Status"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newHarvest" />
+
+    <Button
+        android:id="@+id/toWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="60sp"
+        android:layout_marginTop="32dp"
+        android:text="Check Weather"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toMonitor" />
+
+    <Button
+        android:id="@+id/toUpdateCropState"
+        android:layout_width="wrap_content"
+        android:layout_height="60sp"
+        android:layout_marginTop="32dp"
+        android:text="Update Crop Info"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toWeather" />
+</androidx.constraintlayout.widget.ConstraintLayout>
