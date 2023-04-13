@@ -58,6 +58,20 @@ public class Menu extends AppCompatActivity {
 
             }
         });
+        openUpdateCropState = (Button)findViewById(R.id.toUpdateCropState);
+        openUpdateCropState.setOnClickListener(new View.OnClickListener()
+        {
+
+
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(), InputCropStateActivity.class));
+           /* if you want to finish the first activity then just call
+            finish(); */
+
+            }
+        });
 
     }
 }

@@ -38,6 +38,7 @@ public class InputCropStateActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
     // this function is triggered when
