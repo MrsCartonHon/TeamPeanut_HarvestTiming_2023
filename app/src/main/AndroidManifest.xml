@@ -41,6 +41,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".WeatherActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".SignUpPage"
             android:exported="false">
             <meta-data
