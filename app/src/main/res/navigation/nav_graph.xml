@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/inputcropstate">
 
     <fragment
         android:id="@+id/FirstFragment"
@@ -13,7 +13,7 @@
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/inputcropstate" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -38,4 +38,9 @@
         android:name="com.example.teampeanut_harvesttiming_2023.inputdatastart"
         android:label="activity_inputdatastart"
         tools:layout="@layout/activity_inputdatastart"/>
+    <activity
+        android:id="@+id/inputcropstate"
+        android:name="com.example.teampeanut_harvesttiming_2023.InputCropStateActivity"
+        android:label="activity_input_crop_state"
+        tools:layout="@layout/activity_input_crop_state"/>
 </navigation>
