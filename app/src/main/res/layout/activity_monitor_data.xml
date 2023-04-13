@@ -114,6 +114,17 @@
         android:layout_marginStart="16dp"
         android:text="Place Holder"
         android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/moistIcon"
+        app:layout_constraintStart_toEndOf="@+id/moistIcon"
+        app:layout_constraintTop_toTopOf="@+id/moistIcon" />
+
+    <TextView
+        android:id="@+id/soilTempDisplay2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Place Holder"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/imageView4" />
