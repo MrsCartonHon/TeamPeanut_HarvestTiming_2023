@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Check Crop Status"
+        android:text="@string/check_crop_status"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="60dp"
-        android:text="Remaining days until harvest"
+        android:text="@string/remaining_days_until_harvest"
         android:textColor="#000000"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,6 +74,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/soiltemp" />
 
+    <TextView
+        android:id="@+id/displayTimeLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="harvesttime"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/moistureDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Place Holder"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/moistPic"
+        app:layout_constraintStart_toEndOf="@+id/moistPic"
+        app:layout_constraintTop_toTopOf="@+id/moistPic" />
+
+    <TextView
+        android:id="@+id/soilTempDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/soil_temp"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="@+id/soilpic"
+        app:layout_constraintStart_toEndOf="@+id/soilpic"
+        app:layout_constraintTop_toTopOf="@+id/soilpic" />
+
+    <ImageView
+        android:id="@+id/soilpic"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/soiltemp"
+        app:srcCompat="@mipmap/soilicon_foreground" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="65dp"
@@ -83,58 +125,13 @@
         app:layout_constraintTop_toBottomOf="@+id/daystil"
         app:srcCompat="@mipmap/clockicon_foreground" />
 
-    <TextView
-        android:id="@+id/displayTimeLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Placeholder"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
-
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/soiltemp"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@mipmap/soilIcon_foreground" />
-
-    <TextView
-        android:id="@+id/soilTempDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Place Holder"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/moistIcon"
-        app:layout_constraintStart_toEndOf="@+id/moistIcon"
-        app:layout_constraintTop_toTopOf="@+id/moistIcon" />
-
-    <TextView
-        android:id="@+id/soilTempDisplay2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Place Holder"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
-
-    <ImageView
-        android:id="@+id/moistIcon"
+        android:id="@+id/moistPic"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cropMoisture"
-        app:srcCompat="@mipmap/moistureIcon_foreground" />
+        app:srcCompat="@mipmap/moisticon_foreground" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

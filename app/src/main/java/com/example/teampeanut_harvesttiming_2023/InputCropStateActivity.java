@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 public class InputCropStateActivity extends AppCompatActivity {
@@ -15,6 +16,7 @@ public class InputCropStateActivity extends AppCompatActivity {
 
     // One Preview Image
     ImageView IVPreviewImage;
+    EditText soilTemp, moist;
 
     // constant to compare
     // the activity result code
@@ -39,6 +41,12 @@ public class InputCropStateActivity extends AppCompatActivity {
         });
 
 
+
+    }
+    public String getSoilTemp()
+    {
+        soilTemp = (EditText) findViewById(R.id.SoilTempText);
+        return soilTemp.getText().toString();
     }
 
     // this function is triggered when
