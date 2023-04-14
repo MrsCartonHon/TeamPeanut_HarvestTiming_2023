@@ -2,6 +2,7 @@ package com.example.teampeanut_harvesttiming_2023;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,16 +17,38 @@ public class InputCropStateActivity extends AppCompatActivity {
 
     // One Preview Image
     ImageView IVPreviewImage;
-    EditText soilTemp, moist;
+    EditText soilTemp;
+    EditText moist;
+    Button inputBut;
 
     // constant to compare
     // the activity result code
     int SELECT_PICTURE = 200;
 
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_crop_state);
+        soilTemp = findViewById(R.id.soilTempInput);
+        moist = findViewById(R.id.moistureInput);
+        inputBut = findViewById(R.id.inputCropButton);
+        //Pass Data on Button Click
+        inputBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Get data from input field
+                String getSoilTemp = soilTemp.getText().toString();
+                String getMoisture = moist.getText().toString();
+                //Pass data to 2nd activity
+                Intent intent = new Intent(InputCropStateActivity.this, MonitorData.class);
+                intent.putExtra("name", getSoilTemp);
+                intent.putExtra("number", getMoisture);
+                startActivity(intent);
+            }
+        });
 
         // register the UI widgets with their appropriate IDs
         BSelectImage = findViewById(R.id.SelectImageButton);
@@ -43,11 +66,7 @@ public class InputCropStateActivity extends AppCompatActivity {
 
 
     }
-    public String getSoilTemp()
-    {
-        soilTemp = (EditText) findViewById(R.id.SoilTempText);
-        return soilTemp.getText().toString();
-    }
+
 
     // this function is triggered when
     // the Select Image Button is clicked
