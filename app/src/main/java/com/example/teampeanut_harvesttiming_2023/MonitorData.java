@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MonitorData extends AppCompatActivity {
 
@@ -28,5 +29,7 @@ public class MonitorData extends AppCompatActivity {
 
             }
         });
+        TextView soilTemp = (TextView)findViewById(R.id.soilTempDisplay);
+        soilTemp.setText("Welcome to android");
     }
 }

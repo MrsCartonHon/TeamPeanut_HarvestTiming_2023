@@ -46,6 +46,9 @@
     <string name="crop_health_label_text">Crop Health</string>
     <string name="crop_image_description">Displays the image of the crop.</string>
     <string name="input_crop_button_text">Input</string>
+    <string name="soil_temp">soil_t</string>
+    <string name="check_crop_status">Check Crop Status</string>
+    <string name="remaining_days_until_harvest">Remaining days until harvest</string>
 
 
     <string-array name="crops_array">
