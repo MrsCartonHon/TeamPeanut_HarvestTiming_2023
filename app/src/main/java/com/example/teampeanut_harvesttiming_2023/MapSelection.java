@@ -71,7 +71,7 @@ public class MapSelection extends AppCompatActivity implements OnMapReadyCallbac
         // Updates the location and zoom of the MapView
         /*CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(43.1, -87.9), 10);
         map.animateCamera(cameraUpdate);*/
-        map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(0, 0)));
+        map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(41.554110, -90.488200)));
 
     }
     @Override
