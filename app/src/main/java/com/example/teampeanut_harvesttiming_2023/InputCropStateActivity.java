@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+
+
 public class InputCropStateActivity extends AppCompatActivity {
     // One Button
     Button BSelectImage;
@@ -30,6 +32,7 @@ public class InputCropStateActivity extends AppCompatActivity {
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_crop_state);
         soilTemp = findViewById(R.id.soilTempInput);

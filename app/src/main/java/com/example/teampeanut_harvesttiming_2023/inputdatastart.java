@@ -15,6 +15,11 @@ import android.widget.Spinner;
 
 import com.example.teampeanut_harvesttiming_2023.databinding.ActivityInputdatastartBinding;
 import com.example.teampeanut_harvesttiming_2023.ui.login.JDSignIn;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 
 public class inputdatastart extends AppCompatActivity {
 
@@ -23,6 +28,9 @@ public class inputdatastart extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+// Write a message to the database
+
+
 
         com.example.teampeanut_harvesttiming_2023.databinding.ActivityInputdatastartBinding binding = ActivityInputdatastartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -35,6 +43,7 @@ public class inputdatastart extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(getApplicationContext(), MapSelection.class));
+
            /* if you want to finish the first activity then just call
             finish(); */
 
