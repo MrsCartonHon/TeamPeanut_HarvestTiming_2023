@@ -34,7 +34,7 @@ public class SignUpPage extends AppCompatActivity {
         btn2_signup=findViewById(R.id.signUp);
         firstName = findViewById(R.id.firstNameInput);
         mAuth= FirebaseAuth.getInstance();
-        User newUser = new User();
+
         btn2_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

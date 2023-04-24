@@ -3,7 +3,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.renderscript.Sampler;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,42 +12,31 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 
+import com.example.teampeanut_harvesttiming_2023.data.User;
 import com.example.teampeanut_harvesttiming_2023.databinding.ActivityInputdatastartBinding;
-import com.example.teampeanut_harvesttiming_2023.ui.login.JDSignIn;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
 
 public class inputdatastart extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
+    private String crop, variety, soil, fert;
     Button toMap;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-// Write a message to the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+
 
 
 
         com.example.teampeanut_harvesttiming_2023.databinding.ActivityInputdatastartBinding binding = ActivityInputdatastartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        toMap = (Button)findViewById(R.id.next_but);
-        toMap.setOnClickListener(new View.OnClickListener()
-        {
 
-
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(getApplicationContext(), MapSelection.class));
-
-           /* if you want to finish the first activity then just call
-            finish(); */
-
-            }
-        });
 
 //crop drop down
         setSupportActionBar(binding.toolbar);
@@ -59,20 +47,22 @@ public class inputdatastart extends AppCompatActivity {
         cropSpinner.setAdapter(adapter);
 //Narrowing for crop variety
         //pulls what was selected
+        Spinner varietySpinner = (Spinner) findViewById(R.id.variety_dropdown_menu);
+
     cropSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            String newItem = cropSpinner.getSelectedItem().toString();
-            if (newItem.equals("Corn")) {
-                Spinner varietySpinnerC = (Spinner) findViewById(R.id.variety_dropdown_menu);
-                ArrayAdapter<CharSequence> varietyAdapterC = ArrayAdapter.createFromResource(getApplicationContext(), R.array.cVariety_array, android.R.layout.simple_spinner_item);
-                varietyAdapterC.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                varietySpinnerC.setAdapter(varietyAdapterC);
+            String cropSelected = cropSpinner.getSelectedItem().toString();
+            if (cropSelected.equals("Corn")) {
+
+                ArrayAdapter<CharSequence> varietyAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.cVariety_array, android.R.layout.simple_spinner_item);
+                varietyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                varietySpinner.setAdapter(varietyAdapter);
             } else {
-                Spinner varietySpinnerSB = (Spinner) findViewById(R.id.variety_dropdown_menu);
-                ArrayAdapter<CharSequence> varietyAdapterSB = ArrayAdapter.createFromResource(getApplicationContext(), R.array.sbVariety_array, android.R.layout.simple_spinner_item);
-                varietyAdapterSB.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                varietySpinnerSB.setAdapter(varietyAdapterSB);
+
+                ArrayAdapter<CharSequence> varietyAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.sbVariety_array, android.R.layout.simple_spinner_item);
+                varietyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                varietySpinner.setAdapter(varietyAdapter);
             }
         }
 
@@ -93,6 +83,45 @@ public class inputdatastart extends AppCompatActivity {
         ArrayAdapter<CharSequence> fertAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.fert_array, android.R.layout.simple_spinner_item);
         fertAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fertSpinner.setAdapter(fertAdapter);
+
+
+                toMap = (Button)findViewById(R.id.next_but);
+        toMap.setOnClickListener(new View.OnClickListener()
+
+        {
+
+
+            @Override
+            public void onClick(View v) {
+                crop = cropSpinner.getSelectedItem().toString();
+
+                variety = varietySpinner.getSelectedItem().toString();
+
+                soil = soilSpinner.getSelectedItem().toString();
+                fert = fertSpinner.getSelectedItem().toString();
+
+                DatabaseReference user = database.getReference("User");
+                //user.setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                User newUser = new User(crop ,variety, soil, fert);
+                user.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(newUser);
+
+
+
+
+
+                startActivity(new Intent(getApplicationContext(), MapSelection.class));
+
+
+
+
+
+
+           /* if you want to finish the first activity then just call
+            finish(); */
+
+            }
+        });
+
 
 
     }
