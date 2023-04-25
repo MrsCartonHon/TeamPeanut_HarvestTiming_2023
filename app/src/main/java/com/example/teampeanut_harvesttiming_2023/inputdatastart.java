@@ -20,6 +20,7 @@ public class inputdatastart extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     Button toMap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
