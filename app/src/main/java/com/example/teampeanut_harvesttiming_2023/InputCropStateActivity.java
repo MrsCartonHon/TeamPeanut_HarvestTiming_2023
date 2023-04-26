@@ -11,6 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.teampeanut_harvesttiming_2023.data.NewData;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class InputCropStateActivity extends AppCompatActivity {
@@ -32,23 +36,24 @@ public class InputCropStateActivity extends AppCompatActivity {
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference userNewData = database.getReference("User Update Data");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_crop_state);
-        soilTemp = findViewById(R.id.soilTempInput);
-        moist = findViewById(R.id.moistureInput);
-        inputBut = findViewById(R.id.inputCropButton);
+        soilTemp = (EditText) findViewById(R.id.soilTempInput);
+        moist = (EditText) findViewById(R.id.moistureInput);
+        inputBut =  findViewById(R.id.inputCropButton);
         //Pass Data on Button Click
         inputBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Get data from input field
-                String getSoilTemp = soilTemp.getText().toString();
-                String getMoisture = moist.getText().toString();
-                //Pass data to 2nd activity
+                String moisture = moist.getText().toString();
+                String soilTemperature = soilTemp.getText().toString();
+                NewData newData = new NewData(moisture, soilTemperature);
+                userNewData.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(newData);
                 Intent intent = new Intent(InputCropStateActivity.this, MonitorData.class);
-                intent.putExtra("name", getSoilTemp);
-                intent.putExtra("number", getMoisture);
+
                 startActivity(intent);
             }
         });
@@ -66,6 +71,7 @@ public class InputCropStateActivity extends AppCompatActivity {
             }
         });
 
+//oncreate
 
 
     }
