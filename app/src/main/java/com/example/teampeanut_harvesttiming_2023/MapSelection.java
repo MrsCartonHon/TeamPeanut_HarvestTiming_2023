@@ -43,6 +43,9 @@ public class MapSelection extends AppCompatActivity implements OnMapReadyCallbac
         });
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+
+
+
         mapFragment.getMapAsync(this);
     }
 
@@ -52,7 +55,7 @@ public class MapSelection extends AppCompatActivity implements OnMapReadyCallbac
         gMap = googleMap;
         googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         LatLng farm = new LatLng(41.557579, -90.495911);
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(farm, 15);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(inputdatastart.Farm, 15);
         gMap.animateCamera(cameraUpdate);
     }
 
