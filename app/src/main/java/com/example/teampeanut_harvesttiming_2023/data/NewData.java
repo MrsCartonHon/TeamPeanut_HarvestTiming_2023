@@ -5,6 +5,11 @@ public class NewData
 
     private String moisture, soilTemp;
 
+
+    public NewData()
+    {
+
+    }
     public NewData(String moisture, String soilTemp) {
         this.moisture = moisture;
         this.soilTemp = soilTemp;
