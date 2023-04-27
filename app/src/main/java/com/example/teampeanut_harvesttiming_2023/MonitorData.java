@@ -1,12 +1,25 @@
 package com.example.teampeanut_harvesttiming_2023;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.teampeanut_harvesttiming_2023.data.NewData;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MonitorData extends AppCompatActivity {
 
@@ -15,16 +28,26 @@ public class MonitorData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitor_data);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         soilTemp = findViewById(R.id.soilTempDisplay);
         moisture = findViewById(R.id.moistureDisplay);
-        //Get text from Intent
-        Intent intent = getIntent();
-        String getName = intent.getStringExtra("name");
-        String getNumber = intent.getStringExtra("number");
-        //Set Text
-        soilTemp.setText(getName);
-        moisture.setText(getNumber);
+
+        DatabaseReference newDataRef = database.getReference("User Update Data");
+
+        // Tell the class what to do when data changes in the database.
+        newDataRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                refresh(snapshot.getChildren());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("Data Fetching", error.getMessage());
+            }
+        });
+
 
         Button backButton = (Button) findViewById(R.id.MoniterBackButton);
         backButton.setOnClickListener(new View.OnClickListener()
@@ -42,4 +65,19 @@ public class MonitorData extends AppCompatActivity {
         });
 
     }
+    private void refresh(Iterable<DataSnapshot> userUpdateData){
+
+        for(DataSnapshot user: userUpdateData) {
+            if (user.getKey().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
+            {
+                NewData newUser = user.getValue(NewData.class);
+
+
+
+                soilTemp.setText(newUser.getSoilTemp());
+                moisture.setText(newUser.getMoisture());
+
+            }
+        }
+        }
 }
