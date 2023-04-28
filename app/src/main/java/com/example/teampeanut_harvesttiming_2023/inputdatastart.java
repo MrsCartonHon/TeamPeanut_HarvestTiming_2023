@@ -52,7 +52,7 @@ public class inputdatastart extends AppCompatActivity {
 
                     try {
 
-                        addressList = geocoder.getFromLocationName(location, 1);
+                    addressList = geocoder.getFromLocationName(location, 1);
 
                     } catch (IOException e) {
 
