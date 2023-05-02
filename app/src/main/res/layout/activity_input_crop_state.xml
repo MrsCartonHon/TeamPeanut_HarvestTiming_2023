@@ -7,16 +7,16 @@
     tools:context=".InputCropStateActivity">
 
     <EditText
-        android:id="@+id/MoistureText"
+        android:id="@+id/moistureInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/moisture_hint"
-        android:inputType="textShortMessage"
+        android:inputType="numberDecimal"
         android:minHeight="48dp"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/MoistureLabel"
-        app:layout_constraintStart_toStartOf="@+id/SoilTempText"
+        app:layout_constraintStart_toStartOf="@+id/soilTempInput"
         tools:ignore="Autofill,TextContrastCheck" />
 
     <Button
@@ -30,13 +30,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/SoilTempText"
+        android:id="@+id/soilTempInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:ems="10"
         android:hint="@string/soil_temp_hint"
-        android:inputType="textShortMessage"
+        android:inputType="numberDecimal"
         android:minHeight="48dp"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/SoilTempLabel"
@@ -80,10 +80,10 @@
         app:layout_constraintTop_toBottomOf="@+id/MoistureLabel" />
 
     <Button
-        android:id="@+id/InputCropButton"
+        android:id="@+id/inputCropButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/input_crop_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,10 +93,11 @@
         android:id="@+id/SelectImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Select Image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="287dp" />
+        app:layout_constraintTop_toBottomOf="@+id/CropHealthLabel" />
 
     <ImageView
         android:id="@+id/CropImage"
@@ -105,7 +106,7 @@
         android:background="#D0D0D0"
         android:contentDescription="@string/crop_image_description"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/InputCropButton"
+        app:layout_constraintBottom_toTopOf="@+id/inputCropButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SelectImageButton"

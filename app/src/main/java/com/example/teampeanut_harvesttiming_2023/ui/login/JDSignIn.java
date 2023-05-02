@@ -145,6 +145,7 @@ public class JDSignIn extends AppCompatActivity {
                 Intent secondActivityIntent = new Intent(JDSignIn.this, StartSelect.class);
                 String username = usernameEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
+
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
                 firebaseAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(task->{
