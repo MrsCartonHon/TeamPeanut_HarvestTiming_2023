@@ -33,14 +33,13 @@ public class inputdatastart extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     Button toMap;
     public static LatLng Farm;
-    TextInputEditText editText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         com.example.teampeanut_harvesttiming_2023.databinding.ActivityInputdatastartBinding binding = ActivityInputdatastartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        editText = findViewById(R.id.farmAdress);
         toMap = (Button)findViewById(R.id.next_but);
         toMap.setOnClickListener(new View.OnClickListener()
         {
@@ -48,29 +47,6 @@ public class inputdatastart extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
-                String location = editText.getText().toString();
-                List<Address> addressList = null;
-
-                if (location != null || location.equals("")) {
-
-                    Geocoder geocoder = new Geocoder(inputdatastart.this);
-
-                    try {
-
-                    addressList = geocoder.getFromLocationName(location, 1);
-
-                    } catch (IOException e) {
-
-                        e.printStackTrace();
-
-                    }
-
-                    Address address = addressList.get(0);
-
-                    LatLng Farm = new LatLng(address.getLatitude(), address.getLongitude());
-                }
-
 
                 startActivity(new Intent(getApplicationContext(), MapSelection.class));
            /* if you want to finish the first activity then just call
