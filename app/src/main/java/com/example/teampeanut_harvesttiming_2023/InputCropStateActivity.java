@@ -1,11 +1,14 @@
 package com.example.teampeanut_harvesttiming_2023;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +18,8 @@ import com.example.teampeanut_harvesttiming_2023.data.NewData;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 
 public class InputCropStateActivity extends AppCompatActivity {
@@ -30,14 +35,15 @@ public class InputCropStateActivity extends AppCompatActivity {
     // constant to compare
     // the activity result code
     int SELECT_PICTURE = 200;
-
-
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReference();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference userNewData = database.getReference("User Update Data");
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference userNewData = database.getReference("User Update Data");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_crop_state);
         soilTemp = (EditText) findViewById(R.id.soilTempInput);
@@ -96,19 +102,24 @@ public class InputCropStateActivity extends AppCompatActivity {
     // selects the image from the imageChooser
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        String imageData = null;
         if (resultCode == RESULT_OK) {
 
             // compare the resultCode with the
             // SELECT_PICTURE constant
+            Uri selectedImageUri = null;
             if (requestCode == SELECT_PICTURE) {
                 // Get the url of the image from data
-                Uri selectedImageUri = data.getData();
+                selectedImageUri = data.getData();
+
                 if (null != selectedImageUri) {
                     // update the preview image in the layout
                     IVPreviewImage.setImageURI(selectedImageUri);
+
                 }
             }
+            StorageReference userImage = storageRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            userImage.putFile(selectedImageUri);
         }
     }
 }
