@@ -14,6 +14,7 @@ import android.widget.Spinner;
 
 import com.example.teampeanut_harvesttiming_2023.data.User;
 import com.example.teampeanut_harvesttiming_2023.databinding.ActivityInputdatastartBinding;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
