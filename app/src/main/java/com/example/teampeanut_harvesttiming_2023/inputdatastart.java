@@ -2,9 +2,13 @@ package com.example.teampeanut_harvesttiming_2023;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
+import android.os.Build;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,11 +20,13 @@ import android.widget.Spinner;
 
 import com.example.teampeanut_harvesttiming_2023.databinding.ActivityInputdatastartBinding;
 
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 public class inputdatastart extends AppCompatActivity {
 
