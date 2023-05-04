@@ -1,5 +1,6 @@
 package com.example.teampeanut_harvesttiming_2023;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -51,13 +52,18 @@ public class MapSelection extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
         gMap = googleMap;
         googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         LatLng farm = new LatLng(41.557579, -90.495911);
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(inputdatastart.Farm, 15);
-        //CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(farm, 15);
+        //CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(farm, 17);
         gMap.animateCamera(cameraUpdate);
+        gMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(@NonNull LatLng latLng) {
+
+            }
+        });
     }
 
 }
