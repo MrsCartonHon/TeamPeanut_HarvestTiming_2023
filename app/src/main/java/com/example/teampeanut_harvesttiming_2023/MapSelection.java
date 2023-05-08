@@ -20,9 +20,14 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MapSelection extends AppCompatActivity implements OnMapReadyCallback {
 
     private Button toMenu;
+    private Button commitButton;
+    private Button restartButton;
     private GoogleMap gMap;
 
     @Override
@@ -31,6 +36,8 @@ public class MapSelection extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_map_selection);
 
         toMenu = (Button) findViewById(R.id.next);
+        commitButton = findViewById(R.id.Commit);
+        restartButton = findViewById(R.id.Restart);
         toMenu.setOnClickListener(new View.OnClickListener() {
 
 
@@ -54,15 +61,22 @@ public class MapSelection extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         gMap = googleMap;
+        List<LatLng> polygon = new ArrayList<>();
         googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-        LatLng farm = new LatLng(41.557579, -90.495911);
+
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(inputdatastart.Farm, 15);
-        //CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(farm, 17);
         gMap.animateCamera(cameraUpdate);
+
         gMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(@NonNull LatLng latLng) {
+                polygon.add(latLng);
+            }
+        });
 
+        restartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
         });
