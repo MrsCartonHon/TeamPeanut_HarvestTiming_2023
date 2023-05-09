@@ -19,6 +19,10 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Polygon;
+import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.firebase.database.collection.LLRBNode;
+import com.google.type.Color;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,10 +78,22 @@ public class MapSelection extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
+        commitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PolygonOptions cropField = new PolygonOptions();
+                for (int x = 0; x < polygon.size(); x = x + 1) {
+                    cropField.add(polygon.get(x));
+                }
+                cropField.add(polygon.get(0));
+                Polygon finalField = gMap.addPolygon(cropField);
+            }
+        });
+
         restartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                polygon.clear();
             }
         });
     }
