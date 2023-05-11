@@ -4,11 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.teampeanut_harvesttiming_2023.data.NewData;
@@ -21,14 +24,26 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
 public class MonitorData extends AppCompatActivity {
 
     TextView soilTemp, moisture;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitor_data);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+        File file = new File(this.getBaseContext().getFilesDir(), "photo.png");
+
+        Bitmap myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+
+        ImageView myImage = (ImageView) findViewById(R.id.CropImage);
+
+        myImage.setImageBitmap(myBitmap);
 
         soilTemp = findViewById(R.id.soilTempDisplay);
         moisture = findViewById(R.id.moistureDisplay);

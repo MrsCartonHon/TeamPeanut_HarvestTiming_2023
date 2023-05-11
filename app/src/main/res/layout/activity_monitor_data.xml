@@ -7,6 +7,20 @@
     tools:context=".MonitorData">
 
     <TextView
+        android:id="@+id/cropHealth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="72dp"
+        android:text="Crop Health"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cropMoisture" />
+
+    <TextView
         android:id="@+id/checkCropStatusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,6 +32,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/CropImage"
+        android:layout_width="168dp"
+        android:layout_height="206dp"
+        android:layout_marginBottom="4dp"
+        android:background="#D0D0D0"
+        android:contentDescription="@string/crop_image_description"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cropHealth"
+        app:srcCompat="@drawable/common_full_open_on_phone" />
 
     <Button
         android:id="@+id/MoniterBackButton"
@@ -51,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="82dp"
+        android:layout_marginTop="72dp"
         android:text="Soil Temp"
         android:textColor="#000000"
         android:textSize="28sp"
@@ -65,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="82dp"
+        android:layout_marginTop="72dp"
         android:text="Crop Moisture"
         android:textColor="#000000"
         android:textSize="28sp"
@@ -133,5 +162,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cropMoisture"
         app:srcCompat="@mipmap/moisticon_foreground" />
+
+    <ImageView
+        android:id="@+id/moistPic2"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cropHealth"
+        app:srcCompat="@mipmap/healthicon_foreground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
