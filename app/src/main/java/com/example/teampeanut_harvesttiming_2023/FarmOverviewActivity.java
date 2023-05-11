@@ -3,8 +3,10 @@ package com.example.teampeanut_harvesttiming_2023;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -21,11 +23,20 @@ import java.util.List;
 public class FarmOverviewActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap gMap;
+    private Button backToMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_farm_overview);
+        backToMenu = (Button)findViewById(R.id.backtothepast);
+        backToMenu.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Menu.class));
+            }
+        });
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
