@@ -1,8 +1,12 @@
 package com.example.teampeanut_harvesttiming_2023;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,22 +18,30 @@ import android.widget.Spinner;
 
 import com.example.teampeanut_harvesttiming_2023.data.User;
 import com.example.teampeanut_harvesttiming_2023.databinding.ActivityInputdatastartBinding;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.IOException;
+import java.util.List;
 
 public class inputdatastart extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private String crop, variety, soil, fert;
     Button toMap;
+    public static LatLng Farm;
+    TextInputEditText addressInput;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
 
 
@@ -105,9 +117,27 @@ public class inputdatastart extends AppCompatActivity {
                 User newUser = new User(crop ,variety, soil, fert);
                 user.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(newUser);
 
+                addressInput = findViewById(R.id.farmLong);
+                String location = addressInput.getText().toString();
+                List<Address> addressList = null;
+                if (location != null || location.equals("")) {
+                    // on below line we are creating and initializing a geo coder.
+                    Geocoder geocoder = new Geocoder(inputdatastart.this);
+                    try {
+                        // on below line we are getting location from the
+                        // location name and adding that location to address list.
+                        addressList = geocoder.getFromLocationName(location, 1);
+                        Log.i("Nikolas", "address list" + addressList.toString());
+                    } catch (IOException e) {
+                        Log.i("Nikolas", "this be doing numbers");
+                        e.printStackTrace();
+                    }
+                    // on below line we are getting the location
+                    // from our list a first position.
+                    Address address = addressList.get(0);
 
-
-
+                    Farm = new LatLng(address.getLatitude(), address.getLongitude());
+                }
 
                 startActivity(new Intent(getApplicationContext(), MapSelection.class));
 
