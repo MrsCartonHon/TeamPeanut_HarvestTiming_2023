@@ -168,7 +168,7 @@
         android:layout_width="220sp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
-        android:hint="Longitude"
+        android:hint="Put Address Here"
         android:inputType="textPostalAddress"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/longitudeLabel"
