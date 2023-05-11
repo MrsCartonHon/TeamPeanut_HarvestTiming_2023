@@ -90,6 +90,7 @@ public class MapSelection extends AppCompatActivity implements OnMapReadyCallbac
                 cropField.add(polygon.get(0));
                 cropField.fillColor(COLOR_LIGHT_GREEN_ARGB);
                 cropField.strokeColor(COLOR_DARK_GREEN_ARGB);
+                cropField.clickable(true);
                 Polygon finalField = gMap.addPolygon(cropField);
             }
         });
