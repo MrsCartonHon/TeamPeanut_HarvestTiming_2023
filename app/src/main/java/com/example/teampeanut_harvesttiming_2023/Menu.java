@@ -11,7 +11,7 @@ import com.example.teampeanut_harvesttiming_2023.model.MyWeather;
 
 public class Menu extends AppCompatActivity {
 
-        private Button toNewHarvest, buttonWeather, openMonitor, openUpdateCropState;
+        private Button toNewHarvest, buttonWeather, openMonitor, openUpdateCropState, openMapOverview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +67,21 @@ public class Menu extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(getApplicationContext(), InputCropStateActivity.class));
+           /* if you want to finish the first activity then just call
+            finish(); */
+
+            }
+        });
+
+        openMapOverview = (Button)findViewById(R.id.toMapOverview);
+        openMapOverview.setOnClickListener(new View.OnClickListener()
+        {
+
+
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(), FarmOverviewActivity.class));
            /* if you want to finish the first activity then just call
             finish(); */
 
