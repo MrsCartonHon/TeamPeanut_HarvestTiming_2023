@@ -33,6 +33,8 @@ public class MapSelection extends AppCompatActivity implements OnMapReadyCallbac
     private Button commitButton;
     private Button restartButton;
     private GoogleMap gMap;
+    private static final int COLOR_LIGHT_GREEN_ARGB = 0xff81C784;
+    private static final int COLOR_DARK_GREEN_ARGB = 0xff388E3C;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +88,8 @@ public class MapSelection extends AppCompatActivity implements OnMapReadyCallbac
                     cropField.add(polygon.get(x));
                 }
                 cropField.add(polygon.get(0));
+                cropField.fillColor(COLOR_LIGHT_GREEN_ARGB);
+                cropField.strokeColor(COLOR_DARK_GREEN_ARGB);
                 Polygon finalField = gMap.addPolygon(cropField);
             }
         });
