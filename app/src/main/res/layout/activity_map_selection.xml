@@ -14,28 +14,34 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:text="Next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/Commit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="#CAB500"
+        app:strokeWidth="6dp" />
 
     <Button
         android:id="@+id/Restart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:text="Restart"
+        android:text="Start Drawing"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:strokeColor="#CAB500"
+        app:strokeWidth="6dp" />
 
     <Button
         android:id="@+id/Commit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
+        android:layout_marginEnd="24dp"
         android:text="Commit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/Restart"
+        app:strokeColor="#CAB500"
+        app:strokeWidth="6dp" />
 
     <fragment
         android:id="@+id/map"
@@ -51,7 +57,8 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:context=".MapSelection"
         tools:layout="@layout/activity_map_selection"
-        tools:visibility="visible" />
+        tools:visibility="visible"
+        />
 
 
 

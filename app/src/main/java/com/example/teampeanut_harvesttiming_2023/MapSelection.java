@@ -35,6 +35,7 @@ public class MapSelection extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap gMap;
     private static final int COLOR_LIGHT_GREEN_ARGB = 0xff81C784;
     private static final int COLOR_DARK_GREEN_ARGB = 0xff388E3C;
+    static Boolean drawing = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,34 +74,45 @@ public class MapSelection extends AppCompatActivity implements OnMapReadyCallbac
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(inputdatastart.Farm, 15);
         gMap.animateCamera(cameraUpdate);
 
-        gMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(@NonNull LatLng latLng) {
-                polygon.add(latLng);
-            }
-        });
-
-        commitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PolygonOptions cropField = new PolygonOptions();
-                for (int x = 0; x < polygon.size(); x = x + 1) {
-                    cropField.add(polygon.get(x));
+            gMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                @Override
+                public void onMapClick(@NonNull LatLng latLng) {
+                    if(drawing) {
+                        polygon.add(latLng);
+                    }
                 }
-                cropField.add(polygon.get(0));
-                cropField.fillColor(COLOR_LIGHT_GREEN_ARGB);
-                cropField.strokeColor(COLOR_DARK_GREEN_ARGB);
-                cropField.clickable(true);
-                Polygon finalField = gMap.addPolygon(cropField);
-            }
-        });
+            });
+
+            commitButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(drawing) {
+                        PolygonOptions cropField = new PolygonOptions();
+                        for (int x = 0; x < polygon.size(); x = x + 1) {
+                            cropField.add(polygon.get(x));
+                        }
+                        cropField.add(polygon.get(0));
+                        cropField.fillColor(COLOR_LIGHT_GREEN_ARGB);
+                        cropField.strokeColor(COLOR_DARK_GREEN_ARGB);
+                        cropField.clickable(true);
+                        Polygon finalField = gMap.addPolygon(cropField);
+                        polygon.clear();
+                    }
+                }
+            });
+
+
+
 
         restartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                polygon.clear();
+                if (!drawing) {
+                    drawing = true;
+                }
             }
         });
+
     }
 
 }
