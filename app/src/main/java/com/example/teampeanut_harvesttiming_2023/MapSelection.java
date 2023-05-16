@@ -21,6 +21,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.collection.LLRBNode;
 import com.google.type.Color;
 
@@ -36,10 +39,12 @@ public class MapSelection extends AppCompatActivity implements OnMapReadyCallbac
     private static final int COLOR_LIGHT_GREEN_ARGB = 0xff81C784;
     private static final int COLOR_DARK_GREEN_ARGB = 0xff388E3C;
     static Boolean drawing = false;
+    public static List<PolygonOptions> finalFields = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_map_selection);
 
         toMenu = (Button) findViewById(R.id.next);
@@ -96,6 +101,11 @@ public class MapSelection extends AppCompatActivity implements OnMapReadyCallbac
                         cropField.strokeColor(COLOR_DARK_GREEN_ARGB);
                         cropField.clickable(true);
                         Polygon finalField = gMap.addPolygon(cropField);
+                        Boolean sizeCheck = polygon.size() == 0;
+                        if(!sizeCheck){
+                            finalFields.add(cropField);
+                            Log.i("nikoas", finalFields.toString());
+                        }
                         polygon.clear();
                     }
                 }

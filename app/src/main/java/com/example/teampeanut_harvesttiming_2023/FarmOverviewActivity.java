@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -16,6 +17,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +45,7 @@ public class FarmOverviewActivity extends AppCompatActivity implements OnMapRead
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         gMap = googleMap;
@@ -48,6 +53,12 @@ public class FarmOverviewActivity extends AppCompatActivity implements OnMapRead
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(inputdatastart.Farm, 15);
         gMap.animateCamera(cameraUpdate);
 
+
+        Log.i("nikoas", MapSelection.finalFields.toString());
+        for (int x = 0; x < MapSelection.finalFields.size(); x = x + 1){
+            Polygon finalOverView = gMap.addPolygon(MapSelection.finalFields.get(x));
+            Log.i("nikoas", MapSelection.finalFields.toString());
+        }
 
     }
 }
