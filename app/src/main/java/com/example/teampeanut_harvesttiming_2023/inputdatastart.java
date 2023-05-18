@@ -114,7 +114,7 @@ public class inputdatastart extends AppCompatActivity {
 
                 DatabaseReference user = database.getReference("User");
                 //user.setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                User newUser = new User(crop ,variety, soil, fert);
+                User newUser = new User(crop ,variety);
                 user.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(newUser);
 
                 addressInput = findViewById(R.id.farmLong);
